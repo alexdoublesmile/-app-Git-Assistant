@@ -1,4 +1,4 @@
-package com.joyful.gitassistant.view.GitHubView;
+package com.joyful.gitassistant.view;
 
 import com.joyful.gitassistant.model.RepositoryDescription;
 

@@ -1,6 +1,6 @@
 package com.joyful.gitassistant.model;
 
-import com.joyful.gitassistant.view.GitHubView.GitHubUI;
+import com.joyful.gitassistant.view.GitHubUI;
 import org.kohsuke.github.GHMyself;
 import org.kohsuke.github.GHPullRequest;
 import org.kohsuke.github.GitHub;
