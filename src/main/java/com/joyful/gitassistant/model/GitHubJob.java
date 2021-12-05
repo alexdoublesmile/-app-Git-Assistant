@@ -31,6 +31,7 @@ public class GitHubJob {
 
     private void init() throws IOException {
         GHMyself myself = gitHub.getMyself();
+        String login = myself.getLogin();
 
         new Timer().schedule(new TimerTask() {
             @Override
@@ -38,7 +39,7 @@ public class GitHubJob {
                 try {
                     Set<GHPullRequest> newPRs = new HashSet<>();
                     boolean firstStart = storedPRIds.isEmpty();
-                    myself.getAllRepositories().values()
+                    List<RepositoryDescription> repos = myself.getAllRepositories().values()
                             .stream()
                             .map(repo -> {
                                 List<GHPullRequest> ghPullRequests = null;
@@ -72,6 +73,8 @@ public class GitHubJob {
                                         .pullRequests(ghPullRequests)
                                         .build();
                             }).collect(Collectors.toList());
+
+                    gui.setMenu(login, repos);
 
 //                    if (!firstStart) {
                         newPRs.forEach(pr -> {
